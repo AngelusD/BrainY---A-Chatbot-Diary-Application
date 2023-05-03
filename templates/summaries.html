@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" id="metaCharset">
+    <meta http-equiv="X-UA-Compatible" id="metaHttpEquiv" content="IE=edge">
+    <meta name="viewport" id="metaViewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" id="stylesheetLink" href="{{ url_for('static', filename='newstyle.css') }}">
+    <title id="title">Summaries</title>
+</head>
+<body id="body">
+
+  <header class="inner-page" id="header">
+    <nav class="top-nav" id="topNav">
+      <div class="nav-left" id="navLeft">
+        <h3 id="brandName">BrainY</h3>
+      </div>
+      <div class="nav-right" id="navRight">
+        <button id="logoutButton" class="small-button">Logout</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="center-div" id="centerDiv">
+    <div class="container top-margin" id="container">
+        <h1 id="pageTitle">Past diary entries</h1>
+        <div class="action-buttons" id="actionButtons">
+            <a class="extra-small-button" id="chatButton" href="{{ url_for('chat', user_id=user_id) }}" target="_blank">Chat</a>
+            <a class="extra-small-button" id="diaryButton" href="{{ url_for('diary', user_id=user_id) }}" target="_blank">Today's entry</a>
+        </div>
+        <div id="summary-container">
+          {% for log in logs %}
+          <div id="entry-table-{{loop.index}}">
+            <div id="entry-date-{{loop.index}}">{{ log.timestamp.strftime('%Y-%m-%d %H:%M') }}</div>
+              <div id="entry-content-{{loop.index}}">
+                  <div id="entry-summary-{{loop.index}}">{{ log.summary }}</div>
+                  <div id="entry-key-points-{{loop.index}}">
+                      <ul>
+                          {% for category, key_points in log.key_points.items() %}
+                          <li id="keyPoint-{{loop.index}}"><span id="category-{{loop.index}}">{{ category }}:</span> {{ key_points|join(", ") }}</li>
+                          {% endfor %}
+                      </ul>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <script id="logoutScript">
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("logoutButton").addEventListener("click", function() {
+        window.location.href = '{{ url_for("logout") }}';
+      });
+    });
+  </script>
+
+</body>
+</html>

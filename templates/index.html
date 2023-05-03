@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="static/style.css">
+<title>BrainY - A Chatbot Diary Application</title>
+</head>
+<body>
+
+<header>
+  <nav class="top-nav">
+    <div class="nav-left">
+      <h3>BrainY</h3>
+    </div>
+    <div class="nav-right">
+      <button id="registerButton" class="small-button">Register</button>
+      <button id="loginButton1" class="small-button">Login</button>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-left">
+    <img src="../static/robot.png" alt="Hero Image">
+  </div>
+  <div class="hero-right">
+    <h1 class="brainy-header">BrainY</h1>
+    <h2 class="brainy-header cursor-flash">Your chatbot diary</h2>
+    <p>Welcome to BrainY, your AI-powered personal diary companion. Engage in conversations to share your daily experiences, emotions, and thoughts. Receive insightful analysis and automatic diary entries based on your conversations.</p>
+    <button id="loginButton2" class="cta-button">
+      Let's begin!
+    </button>
+
+  </div>
+</section>
+<section class="info">
+  <div class="column">
+    <h3>Features</h3>
+    <div class="inside-box">
+    <ul>
+      <li>User-friendly interface for seamless interaction with BrainY.</li>
+      <li>Secure login and registration system to protect your personal information.</li>
+      <li>Conversations saved and used to create a diary entry tailored to your experiences.</li>
+      <li>Analyzes and categorizes key points from your conversations, including habits, activities, goals, mood,
+        and thoughts.</li>
+
+
+    </ul>
+    </div>
+
+  </div>
+  <div class="column">
+    <h3>Getting Started</h3>
+    <div class="inside-box">
+    <ul>
+      <li>Register for an account with a unique username and password.</li>
+      <li>Log in to your account to access the BrainY chat interface.</li>
+      <li>Conversations saved and used to create a diary entry tailored to your experiences.</li>
+      <li>Start chatting with BrainY, sharing your thoughts, emotions, and experiences.</li>
+
+
+    </ul>
+    </div>
+
+  </div>
+  <div class="column">
+    <h3>BrainY In Action</h3>
+    <div class="inside-box">
+    <p>As you chat with BrainY, the system analyzes and processes your input. BrainY uses advanced language models to understand your messages and generate appropriate responses. By clicking "Generate Diary", BrainY will automatically create a diary entry based on your conversation.</section>
+    </p></div>
+  </div>
+  </div>
+</section>
+<section class="cta-section">
+  <h2 class="brainy-header">Try out BrainY now</h2>
+  <button id="loginButton3" class="cta-button">Let's begin!</button>
+</section>
+
+
+</body>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("loginButton1").addEventListener("click", function() {
+      window.location.href = '{{ url_for("login") }}';
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("loginButton2").addEventListener("click", function() {
+      window.location.href = '{{ url_for("login") }}';
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("loginButton3").addEventListener("click", function() {
+      window.location.href = '{{ url_for("login") }}';
+    });
+  });
+
+  document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("registerButton").addEventListener("click", function() {
+      window.location.href = '{{ url_for("register") }}';
+    });
+  });
+</script>
+
+</html>

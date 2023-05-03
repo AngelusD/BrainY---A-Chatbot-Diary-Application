@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="inner-page">
+        <nav class="top-nav">
+          <div class="nav-left">
+            <h3>BrainY</h3>
+          </div>
+          <div class="nav-right">
+            <button id="logoutButton" class="small-button">Logout</button>
+          </div>
+        </nav>
+      </header>
+    <div class="center-div"><div class="container">
+        <h1>Welcome, {{ user.username }}</h1>
+        <div class="action-buttons">
+        <a class="extra-small-button" href="{{ url_for('diary', user_id=user.id) }}" target="_blank">View Diary</a>
+        <a class="extra-small-button" id="generate-summary-btn">Generate Summary</a>
+        <a class="extra-small-button" href="{{ url_for('view_summaries', user_id=user.id) }}" target="_blank">View Past Records</a>
+        </div>
+        <div id="chat-container">
+            <div class="message-container">
+                <!-- Chat messages will be displayed here -->
+            </div>
+        </div>
+        <form id="chat-form" autocomplete="off">
+            <input type="text" id="message" placeholder="Type your message here...">
+            <button type="submit" class="submit-btn">Send</button>
+        </form>
+    </div></div>
+
+    <!-- SCRIPTS -->
+    <script>
+
+        function scrollToBottom(element) {
+        element.scrollTop = element.scrollHeight;
+    }
+
+    function getCurrentTimestamp() {
+        const now = new Date();
+        return `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+    }
+
+    let chatForm = document.getElementById('chat-form');
+    chatForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        let message = document.getElementById('message').value;
+
+        // Create user message element and timestamp element
+        let messageElement = document.createElement('div');
+        let messageText = document.createElement('span');
+        let timestamp = document.createElement('small');
+        messageElement.classList.add('user-message');
+        messageText.innerText = `{{ user.username }}: ${message}`;
+        timestamp.innerText = getCurrentTimestamp();
+        timestamp.classList.add('timestamp');
+
+        // Append user message and timestamp to the message element
+        messageElement.appendChild(messageText);
+        messageElement.appendChild(timestamp);
+        document.querySelector('.message-container').appendChild(messageElement);
+        document.getElementById('message').value = '';
+
+        fetch('/chat/{{ user.id }}', {
+            method: 'POST',
+            body: JSON.stringify({ 'user_id': '{{ user.id }}', 'message': message }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => {
+            if(!response.ok) {
+                console.log('Error in fetch response: ', response);
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Data: ', data);
+            let chatbotResponse = data.response;
+            let chatbotMessageElement = document.createElement('div');
+            let chatbotMessageText = document.createElement('span');
+            let chatbotTimestamp = document.createElement('small');
+            chatbotMessageElement.classList.add('chatbot-message');
+            chatbotMessageText.innerText = `BrainY: ${chatbotResponse}`;
+            chatbotTimestamp.innerText = getCurrentTimestamp();
+            chatbotTimestamp.classList.add('timestamp');
+
+            // Append chatbot message and timestamp to the message element
+            chatbotMessageElement.appendChild(chatbotMessageText);
+            chatbotMessageElement.appendChild(chatbotTimestamp);
+            document.querySelector('.message-container').appendChild(chatbotMessageElement);
+
+            scrollToBottom(document.querySelector('#chat-container'));
+
+            // Save chat history in local storage after each message
+            localStorage.setItem('chatHistory', document.querySelector('.message-container').innerHTML);
+        })
+        .catch(error => {
+            console.log('Fetch error: ', error);
+        });
+    });
+
+    // Load chat history from local storage when the page is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        let savedChatHistory = localStorage.getItem('chatHistory');
+        if (savedChatHistory) {
+            document.querySelector('.message-container').innerHTML = savedChatHistory;
+        }
+    });
+                // Add this script at the end of your JavaScript code
+                let summaryBtn = document.getElementById('generate-summary-btn');
+        summaryBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+
+            fetch('/generate_summary/{{ user.id }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Summary generated successfully.");
+                } else {
+                    alert("Failed to generate summary. Not sufficient data for the Diary generation.");
+                }
+
+
+            });
+
+        });
+
+
+    </script>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("logoutButton").addEventListener("click", function() {
+            window.location.href = '{{ url_for("logout") }}';
+    });
+});
+    </script>
+
+
+</body>
+</html>

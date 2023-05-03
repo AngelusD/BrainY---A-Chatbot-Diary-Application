@@ -1,0 +1,584 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+
+
+
+body {
+font-family: 'Public Sans', sans-serif;
+    /*background-color: #3f729b;
+background-image: linear-gradient(135deg, #3f729b 0%, #1c2331 100%); */
+margin: 0;
+padding: 0;
+height: 100vh;
+background-color: #FF3CAC;
+background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+background-attachment:fixed;
+background-size: 100%;
+color: #17173b;
+
+}
+
+header {
+width: 100%;
+}
+
+header.inner-page {
+    position: fixed;
+}
+
+.top-nav {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.2rem;
+}
+
+.top-nav h3 {
+color: #fff;
+font-family: 'Press Start 2P', cursive;    font-size: 1.6em;
+}
+
+.top-nav button {
+background-color: #333;
+color: #fff;
+border: none;
+margin-left: 1rem;
+cursor: pointer;
+}
+
+.hero {
+display: flex;
+justify-content: space-around;
+align-items: center;
+padding: 2rem;
+}
+
+.hero img {
+max-width: 100%;
+height: auto;
+}
+
+.hero-left {
+flex: 0 0 40%;
+}
+
+.hero-right {
+flex: 0 0 60%;
+text-align: left;
+padding: 1rem;
+}
+.hero-right h2 {
+padding-bottom: 1.6rem;
+}
+
+.hero-right p {
+max-width: 70%;
+padding-bottom: 1.6rem;
+font-size: 1.2rem;
+
+}
+
+.brainy-header {
+color: #fff;
+font-family: 'Press Start 2P', cursive;
+font-size: 1.6em;
+padding-bottom: 1rem;
+font-size: 2rem;
+}
+
+@keyframes cursor-blink {
+0% {
+    opacity: 0;
+}
+
+}
+
+.cursor-flash::after {
+content: "_";
+display: inline-block;
+animation: cursor-blink 1.5s steps(2) infinite;
+}
+
+.info {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-around;
+padding: 2rem;
+}
+
+
+.column {
+flex: 1 0 20%;
+padding: 1rem;
+text-align: justify;
+min-width: 250px; /* */
+flex-wrap: wrap;
+color: #f7f2ff;
+}
+
+.inside-box {
+    background-color: #193880;
+    border-radius: 25px;
+    opacity: 70%;
+    display: inline-flexbox;
+}
+
+.column h3 {
+    font-family: 'Press Start 2P', cursive;
+    color: #f7f2ff;
+    text-align: center;
+}
+
+.inside-box ul {
+    list-style: none;
+    margin: 2rem auto;
+    padding: 1.4rem;
+}
+
+.inside-box ul li {
+    margin: 1rem auto;
+}
+
+.inside-box p {
+    margin: 2rem auto;
+    padding: 1.4rem;
+    line-height: 140%;
+}
+
+
+.cta-section {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+padding: 2rem;
+}
+
+button.cta-button {
+-webkit-border-radius: 24;
+-moz-border-radius: 24;
+border-radius: 24px;
+border-color: transparent;
+color: #f7f2ff;
+font-size: 1rem;
+background: #1d1e68;
+padding: 12px 32px 12px 32px;
+text-decoration: none;
+font-family: 'Press Start 2P', cursive;
+}
+
+.cta-button:hover {
+    background: #d042a8;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+button.small-button {
+    -webkit-border-radius: 24;
+    -moz-border-radius: 24;
+    border-radius: 24px;
+    border-color: transparent;
+    color: #f7f2ff;
+    font-size: 0.8rem;
+    background: #b045a5;
+    padding: 12px 32px 12px 32px;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    }
+
+.small-button:hover {
+    background: #bd4fb2;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+.center-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 2rem;
+}
+.auth-container {
+    width: 400px;
+    padding: 20px;
+    background-color: #193880;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+
+.auth-container h1 {
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    margin-top: 0;
+    padding-top: 20px;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+.auth-container form {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.auth-container label {
+    display: none;
+}
+
+.auth-container input {
+    margin: 0.8rem;
+    padding: 8px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Public Sans', sans-serif;
+}
+
+.auth-container input[type="submit"] {
+    -webkit-border-radius: 24;
+    -moz-border-radius: 24;
+    border-radius: 24px;
+    border-color: transparent;
+    color: #f7f2ff;
+    font-size: 0.8rem;
+    background: #b045a5;
+    padding: 12px 32px 12px 32px;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+}
+
+.auth-container input[type="submit"]:hover {
+    background-color: #1c2331;
+    cursor: pointer;
+}
+
+.auth-container p {
+    margin-top: 20px;
+    text-align: center;
+    color: #f7f2ff;
+}
+
+.auth-container a {
+    color: #f13daa;
+    text-decoration: none;
+}
+
+.auth-container a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: #b045a5;
+}
+
+.container {
+    width: 800px;
+    padding: 20px;
+    background-color: #193880;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.container h1 {
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    margin-top: 0;
+    padding-top: 20px;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+.action-buttons {
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.user-message,
+.chatbot-message {
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    max-width: 80%;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: transparent;
+    padding: 0;
+    color: #f5f5f5;
+}
+
+.chatbot-message {
+    align-self: flex-start;
+    background-color: transparent;
+    padding: 0;
+    color: #f5f5f5;
+}
+
+#chat-container {
+    background-color: #1c2331;
+    padding: 20px;
+    border-radius: 10px;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+
+}
+
+#chat-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#chat-form input {
+    margin: 0.8rem;
+    padding: 8px;
+    background-color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Public Sans', sans-serif;
+}
+
+
+
+#message {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+#chat-container::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+}
+
+.submit-btn {
+    -webkit-border-radius: 24;
+    -moz-border-radius: 24;
+    border-radius: 24px;
+    border-color: transparent;
+    color: #f7f2ff;
+    font-size: 0.8rem;
+    background: #b045a5;
+    padding: 12px 32px 12px 32px;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #1c2331;
+    cursor: pointer;}
+
+.timestamp {
+    color: #B0BEC5;
+    font-size: 0.8rem;
+    display: block;
+}
+
+.user-message .timestamp {
+    text-align: right;
+    margin-top: 2px;
+}
+
+.chatbot-message .timestamp {
+    text-align: left;
+    margin-top: 2px;
+}
+
+.extra-small-button {
+    -webkit-border-radius: 24;
+    -moz-border-radius: 24;
+    border-radius: 24px;
+    border-color: transparent;
+    color: #f7f2ff;
+    font-size: 0.8rem;
+    background: #b045a5;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    display: inline-block;
+    }
+
+#generate-summary-btn:hover{
+    cursor: pointer;
+}
+
+
+.diary-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.8rem;
+    height: 100%;
+    }
+
+
+    .diary-container-left {
+    flex: 0 0 50%;
+    min-height: 100%;
+    background-color: #6391b1;
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0 2rem;
+    }
+
+    .diary-container-right {
+    flex: 0 0 50%;
+    text-align: left;
+    padding: 0 1rem 1rem 1rem;
+
+    }
+
+.diary-container-right h2 {
+    font-size: 1rem;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    margin-top: 0;
+    padding-top: 0;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+}
+
+.diary-container-right ul {
+    list-style: none;
+    padding-top: 1rem;
+    color: #6391b1;
+}
+.diary-container-right ul li {
+    padding-bottom: 1rem;
+}
+
+.entry-content {
+    display: flex;
+    width: 100%;
+    background-color: #6391b1;
+}
+
+.entry-summary, .entry-key-points {
+    flex: 1;
+    padding: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.entry-summary {
+    text-align: justify;
+}
+
+.entry-key-points li span {
+    font-weight: bold;
+    font-size: 1.2em;  /* Increased font size */
+}
+
+.entry-key-points li {
+    font-weight: normal;
+    font-size: 1em;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+.summary-container {
+    width: 100%;
+
+}
+
+
+@media only screen and (max-width: 767px) {
+    /* CSS styles for mobile devices */
+
+    .inner-page {
+        z-index: 1000; /* This will ensure the header stays on top of other elements */
+    }
+
+    .action-buttons {
+        z-index: 999; /* This will ensure the buttons stay below the header and above other elements */
+    }
+
+    #chat-container {
+        overflow-y: auto; /* This will add a scrollbar when the chatbox becomes too big */
+        z-index: 998; /* This will ensure the chatbox stays below the buttons */
+    }
+
+    .hero {
+        flex-direction: column;
+    }
+    .hero-left, .hero-right {
+        flex: 0 0 100%;
+    }
+    .hero-right p {
+        max-width: 90%;
+    }
+    .column {
+        flex: 1 0 100%;
+        text-align: center;
+    }
+    .auth-container {
+        width: 90%;
+    }
+    .container {
+        width: 90%;
+        margin-top: 160px; /* Adjust this value according to your needs */
+    }
+    .diary-container {
+        flex-direction: column;
+    }
+    .diary-container-left, .diary-container-right {
+        flex: 0 0 100%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container, .auth-container {
+        width: 100%;
+        margin-top: 160px; /* Adjust this value according to your needs */
+    }
+
+    .hero-left, .hero-right {
+        flex: 0 0 100%;
+        text-align: center;
+    }
+
+    .hero-right p {
+        max-width: 90%;
+    }
+
+    .column {
+        flex: 1 0 100%;
+        text-align: center;
+    }
+
+    #chat-container {
+        max-height: calc(100vh - 260px); /* This is the height of the viewport minus the heights of the other elements above the chat container */
+        overflow-y: auto; /* This allows the chat container to scroll when there are too many messages */
+    }
+
+    input[type="text"], input[type="password"], input[type="email"] {
+        width: 100%;
+        font-size: 16px;
+    }
+}

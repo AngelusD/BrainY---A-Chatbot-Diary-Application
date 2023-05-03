@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #78909C;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    min-height:100vh; 
+    background-image: linear-gradient(135deg,#3f729b 0%,#1c2331 100%);
+    }
+    .container {
+        width: 1200px; /* Updated width */
+        padding: 2rem;
+        border-radius: 10px;
+        background-color: transparent;
+        box-shadow:none;  
+    }
+    .header {
+    text-align:center ;
+    padding-bottom :2rem ;
+    }
+    .content {
+    display:flex ; /* Added display: flex; */
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    }
+    
+    h1 {
+    font-size:60px; 
+    color:#37474f ;
+    }
+    h2 {
+    font-size:20px;
+    color:#3f729b ;
+    margin-bottom:.25rem ; 
+    text-align:center ; /* Updated text alignment */
+    }
+    h3 {
+    font-size:30px; 
+    color:#1c2331 ;
+    margin-bottom:.25rem ;  
+    text-align:center ;;
+    }
+    p,
+    section {
+    line-height : 1.6;
+    margin-bottom:.5rem ;;
+    padding-left :5px ;
+    padding-right :5px ;;
+    font-size:bold 14 px;;
+    color:#F5F5F5;;
+    text-align:center;; /* Updated text alignment */
+    }
+    
+    .content-section{
+        border-left:solid rgba(63,114,155,.25) .25rem;
+        width: calc(20% - 40px); /* Updated width for columns */
+        margin-right: 0.9px; /* Added margin-right for spacing between columns */
+    }
+    
+    .lets-begin{
+        text-align:center ;
+        font-size: 24px; /* Changed font size */
+        font-weight: bold;
+        color:#3f729b ; /* Changed color to match h2 */
+        text-decoration:none;
+        transition: color .2s ease-in-out; /* Added transition effect */
+        padding-left :10px ;
+        padding-right :10px ;;
+        /* Removed background-color, border, border-radius, width, height, padding and display styles */
+    }
+    .lets-begin:hover{
+        color:#1c2331; /* Changed hover color to match h3 */
+        text-decoration: underline; /* Added underline on hover */
+        opacity: .8; /* Added opacity on hover */
+    }
