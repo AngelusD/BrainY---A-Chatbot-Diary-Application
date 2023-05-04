@@ -512,16 +512,16 @@ button.small-button {
     /* CSS styles for mobile devices */
 
     .inner-page {
-        z-index: 1000; /* This will ensure the header stays on top of other elements */
+        z-index: 1000; 
     }
 
     .action-buttons {
-        z-index: 999; /* This will ensure the buttons stay below the header and above other elements */
+        z-index: 999; 
     }
 
     #chat-container {
-        overflow-y: auto; /* This will add a scrollbar when the chatbox becomes too big */
-        z-index: 998; /* This will ensure the chatbox stays below the buttons */
+        overflow-y: auto; 
+        z-index: 998; 
     }
 
     .hero {
@@ -542,7 +542,7 @@ button.small-button {
     }
     .container {
         width: 90%;
-        margin-top: 160px; /* Adjust this value according to your needs */
+        margin-top: 160px; 
     }
     .diary-container {
         flex-direction: column;
@@ -555,7 +555,7 @@ button.small-button {
 @media screen and (max-width: 600px) {
     .container, .auth-container {
         width: 100%;
-        margin-top: 160px; /* Adjust this value according to your needs */
+        margin-top: 160px; 
     }
 
     .hero-left, .hero-right {
@@ -573,8 +573,8 @@ button.small-button {
     }
 
     #chat-container {
-        max-height: calc(100vh - 260px); /* This is the height of the viewport minus the heights of the other elements above the chat container */
-        overflow-y: auto; /* This allows the chat container to scroll when there are too many messages */
+        max-height: calc(100vh - 260px); 
+        overflow-y: auto; 
     }
 
     input[type="text"], input[type="password"], input[type="email"] {
